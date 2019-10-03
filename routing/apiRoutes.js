@@ -12,7 +12,24 @@ app.use(express.json());
 
 
 
-app.get("/api/friends", function(req, res) {
+app.get("/api/friends", function (req, res) {
     return res.json(friends);
-  });
-  
+});
+
+
+// Create New Friends - takes in JSON input
+app.post("/api/friends", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var addFriend = req.body;
+
+    // Using a RegEx Pattern to remove spaces from addFriend
+    addFriend.routeName = addFriend.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(addFriend);
+
+    characters.push(addFriend);
+
+    res.json(addFriend);
+});
+

@@ -20,8 +20,8 @@
             <h3>The greatest resource for finding friends!</h3>
             <hr>
 
-            <a href="/api/friends"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Add
-                    Friend</button></a>
+            <a href="/api/friends"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View
+                    Friend List</button></a>
         </div>
         <div class="row">
 
@@ -49,10 +49,10 @@
                     <div class="card-body">
                         <h2 id="name">Bork</h2>
                         <div id="stats">
-                            <h3><strong>Role:</strong> <span id="role">A Guy</span></h3>
+                            <h3><strong>Species:</strong> <span id="role">Human Male</span></h3>
                             <h3><strong>Age:</strong> <span id="age">42</span></h3>
                             <h3><strong>Special Talents:</strong> <span id="talents">Can whistle dixie-land
-                                    delight</span></h3>
+                                    delight.</span></h3>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 if (data) {
                     $("#stats").show();
                     $("#name").text(data.name);
-                    $("#role").text(data.role);
+                    $("#role").text(data.species);
                     $("#age").text(data.age);
                     $("#talents").text(data.talents);
                 } else {
