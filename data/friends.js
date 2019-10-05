@@ -1,7 +1,6 @@
 // Friend Finder (DATA)
 // =============================================================
-var addFriend = [{}];
-
+var friendCache = [{}];
 
 
 

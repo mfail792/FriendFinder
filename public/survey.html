@@ -167,4 +167,29 @@
             </div>
         </footer>
 
+
+        <!--grabs user input data and scores, posts to friendsCache array in friends.js-->
+        <script type="text/javascript">
+            // Question: What does this code do?
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
+                var addFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: $("#scores").val().trim(),
+                    postfriend();
+                };
+
+                // Question: What does this code do??
+                var postFriend = function () {
+                    $.post("/api/friends", addFriend)
+                        .then(function (data) {
+                            console.log("add.html", data);
+                            alert("Adding user...");
+                        });
+                }
+            });
+        </script>
+
+
     </div>
