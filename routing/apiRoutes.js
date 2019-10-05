@@ -10,26 +10,30 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+});
 
 
 app.get("/api/friends", function (req, res) {
-    return res.json(friends);
+    return res.json(addFriend);
 });
 
-
-// Create New Friends - takes in JSON input
 app.post("/api/friends", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var addFriend = req.body;
+    var newCharacter = req.body;
 
-    // Using a RegEx Pattern to remove spaces from addFriend
-    addFriend.routeName = addFriend.name.replace(/\s+/g, "").toLowerCase();
+    // Using a RegEx Pattern to remove spaces from newCharacter
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
 
-    console.log(addFriend);
+    console.log(newCharacter);
 
-    characters.push(addFriend);
+    characters.push(newCharacter);
 
-    res.json(addFriend);
+    res.json(newCharacter);
 });
+
+
 

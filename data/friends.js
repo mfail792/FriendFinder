@@ -12,41 +12,8 @@ app.use(express.json());
 
 // Friend Finder (DATA)
 // =============================================================
-var friendCache = [
-  {
-    routeName: "friends",
-    name: "Bork",
-    species: "Human Male",
-    age: 42,
-    talents: "Can whistle dixie-land delight",
-    scores: [
-      5,
-      1,
-      4,
-      4,
-      5,
-      1,
-      2,
-      5,
-      4,
-      1
-    ]
-  },
-  {
-    routeName: "friends",
-    name: "Darth Maul",
-    species: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
-  },
+var addFriend = [{}];
 
-  //need to add more friends
-  {
-    routeName: "friends",
-    name: "Obi Wan Kenobi",
-    species: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
-  }
-];
-
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+});
