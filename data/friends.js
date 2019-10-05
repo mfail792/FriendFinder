@@ -18,7 +18,19 @@ var friendCache = [
     name: "Bork",
     species: "Human Male",
     age: 42,
-    talents: "Can whistle dixie-land delight"
+    talents: "Can whistle dixie-land delight",
+    scores: [
+      5,
+      1,
+      4,
+      4,
+      5,
+      1,
+      2,
+      5,
+      4,
+      1
+    ]
   },
   {
     routeName: "friends",
