@@ -1,27 +1,44 @@
-var friends = require("/api/friends");
+//a POST routes /api/friends - this handles incoming survey results. will also used to handle the compatibility logic
+//Load Data
+var friendCache = require('../data/friend.js');
 
 module.exports = function (app) {
-    app.get("/api/friends", function (req, res) {
-        res.json(friends);
+    //a GET route that displays JSON of all possible friends
+    app.get('/api/friends', function (req, res) {
+        res.json(friendCache);
     });
-}
 
-    .post(function (req, res) {
-        res.send(userData);
-    })
+    app.post('/api/friends', function (req, res) {
+        //grabs the new friend's scores to compare with friends in friendList array
+        var newFriendScores = req.body.scores;
+        var scoresArray = [];
+        var friendCache = 0;
+        var bestMatch = 0;
 
-//Need POST route here to handle incoming survey results and compatability logic.
+        //runs through all current friends in list
+        for (var i = 0; i < friendCache.length; i++) {
+            var scoresDiff = 0;
+            //run through scores to compare friends
+            for (var j = 0; j < newFriendScores.length; j++) {
+                scoresDiff += (Math.abs(parseInt(friendCache[i].scores[j]) - parseInt(newFriendScores[j])));
+            }
 
-//loop through friends
+            //push results into scoresArray
+            scoresArray.push(scoresDiff);
+        }
 
-//math (NEW USER INPUTS DATA AND ASNWERS THE QUESTION.  FROM THERE THE INFO IS STORED IN AN)
+        //after comparing all friends, locates best match
+        for (var i = 0; i < scoresArray.length; i++) {
+            if (scoresArray[i] <= scoresArray[bestMatch]) {
+                bestMatch = i;
+            }
+        }
 
-//store result
+        //return bestMatch data
+        var bestBud = friendCache[bestMatch];
+        res.json(bestBud);
 
-//end of loop, array of all results, pick the highest as best match
-
-//return that person
-
-
-
-
+        //pushes new entry into the friendCache array
+        friendCache.push(req.body);
+    });
+};

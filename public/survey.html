@@ -187,29 +187,6 @@
         <script type="text/javascript">
 
 
-
-            function arr_diff(userData, friendCache) {
-
-                var a = [], diff = [];
-
-                for (var i = 0; i < userData.scores.length; i++) {
-                    a[userData.scores[i]] = true;
-                }
-
-                for (var i = 0; i < friendCache.scores.length; i++) {
-                    if (a[friendCache.scores[i]]) {
-                        delete a[friendCache.scores[i]];
-                    } else {
-                        a[friendCache.scores[i]] = true;
-                    }
-                }
-
-                for (var k in a) {
-                    diff.push(k);
-                }
-                return diff;
-            }
-
             // Capture the form inputs
             $("#submit").on("click", function (event) {
                 event.preventDefault();
@@ -252,14 +229,18 @@
                         ]
                     };
 
-                    // AJAX post the data to the friends API.
-                    $.post("/api/friends", userData, function (data) {
+                    //grabs current URL of site
+                    var currentURL = window.location.origin;
 
-                        // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+
+                    // AJAX post the data to the friends API in friends.js
+                    $.post(currentURL + "/api/friends", userData, function (data) {
+
+                        // Grab the result from the AJAX post so that the best match's name and pic are displayed
                         $("#match-name").text(data.name);
                         $("#match-img").attr("src", data.photo);
 
-                        // Show the modal with the best match
+                        // Shows modal with the best match
                         $("#results-modal").modal("toggle");
 
                     });
@@ -267,6 +248,10 @@
                     alert("Please fill out all fields before submitting!");
                 }
             });
+
+
+            //*still need to add code to clear input fields after user submission*
+
         </script>
 
         <hr>
@@ -277,5 +262,7 @@
             </div>
         </footer>
 
+
+    
 
     </div>
