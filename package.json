@@ -4,9 +4,20 @@
   "description": "Match up with your best friend using a compatability quiz!",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   },
   "scripts": {
     "start": "node server.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfail792/FriendFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfail792/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/mfail792/FriendFinder#readme"
 }
