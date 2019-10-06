@@ -1,35 +1,27 @@
-// Displays all friends
-app.get("/api/friends", function (req, res) {
-    return res.json(characters);
-});
+var friends = require("/api/friends");
 
-//Grabs user input data and scores, posts to friendsCache array in friends.js-->
-$("#submit").on("click", function (event) {
-    event.preventDefault();
-    var newFriend = {
-        name: $("#name").val(),
-        photo: $("#photo").val(),
-        scores: [
-            $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
-        ]
-    };
+module.exports = function (app) {
+    app.get("/api/friends", function (req, res) {
+        res.json(friends);
+    });
+}
 
-    //sends to friends.js for storage
-    $.post("/api/friends", newFriend)
-        .then(function (data) {
-            console.log("survey.html", data);
-            alert("Adding friend...");
-        });
-});
+    .post(function (req, res) {
+        res.send(userData);
+    })
+
+//Need POST route here to handle incoming survey results and compatability logic.
+
+//loop through friends
+
+//math (NEW USER INPUTS DATA AND ASNWERS THE QUESTION.  FROM THERE THE INFO IS STORED IN AN)
+
+//store result
+
+//end of loop, array of all results, pick the highest as best match
+
+//return that person
+
 
 
 
