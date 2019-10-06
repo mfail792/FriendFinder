@@ -42,3 +42,5 @@ module.exports = function (app) {
         friendCache.push(req.body);
     });
 };
+
+//test
