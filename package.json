@@ -1,7 +1,7 @@
 {
-  "name": "y",
+  "name": "friendfinder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Match up with your best friend using a compatability quiz!",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
