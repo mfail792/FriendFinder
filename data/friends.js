@@ -87,9 +87,6 @@ var friendCache = [
 module.exports = friendCache;
 
 
-app.listen(PORT, function () {
-  console.log("App listening on PORT " + PORT);
-});
 
 
 
