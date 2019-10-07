@@ -7,9 +7,9 @@
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Font Awesome Glyphicons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
@@ -28,10 +28,10 @@
 
         <h3><strong>About You</strong></h3>
         <h4>Name (Required)</h4>
-        <input type="text" id="name" class="form-control" required>
+        <input type="text" id="name" class="form-control" placeholder="What's your name?" required>
 
         <h4>Link to Photo Image (Required)</h4>
-        <input type="text" id="photo" class="form-control" required>
+        <input type="text" id="photo" placeholder="Link an image here!" class="form-control" required>
 
         <hr>
 
@@ -83,7 +83,7 @@
 
 
         <h3><strong>Question 5</strong></h3>
-        <h4>People can rarely upset you.</h4>
+        <h4>You typically rely on Chuck Norris movies to inspire your life decisions.</h4>
         <select class="chosen-select" id="q5">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -95,7 +95,7 @@
 
 
         <h3><strong>Question 6</strong></h3>
-        <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+        <h4>Sometimes you find yourself questioning the possibility that Chuck Norris sneezed, resulting in the creation of the universe.</h4>
         <select class="chosen-select" id="q6">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -107,7 +107,7 @@
 
 
         <h3><strong>Question 7</strong></h3>
-        <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+        <h4>There are times when you have woken up during the middle of the night in a feverish sweat, recounting lines from Chuck Norris movies.</h4>
         <select class="chosen-select" id="q7">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -118,7 +118,7 @@
         </select>
 
         <h3><strong>Question 8</strong></h3>
-        <h4>You rarely get carried away by fantasies and ideas.</h4>
+        <h4>On any given day, you find yourself questioning whether or not the activities you are involved with would be better spent watching Chuck Norris movies.</h4>
         <select class="chosen-select" id="q8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -141,7 +141,7 @@
         </select>
 
         <h3><strong>Question 10</strong></h3>
-        <h4>You feel more energetic after spending time with a group of people.</h4>
+        <h4>You feel more energetic after spending time watching old Chuck Norris movies.</h4>
         <select class="chosen-select" id="q10">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -165,8 +165,7 @@
                     </div>
                     <div class="modal-body">
                         <h2 id="match-name"></h2>
-                        <img id="match-img"
-                            src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+                        <img id="match-img" src="" alt="No Image">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -184,8 +183,8 @@
                 aria-hidden="true"></i>
             Submit</button>
 
-        <script type="text/javascript">
 
+        <script type="text/javascript">
 
             // Capture the form inputs
             $("#submit").on("click", function (event) {
@@ -263,6 +262,6 @@
         </footer>
 
 
-    
+
 
     </div>

@@ -1,6 +1,6 @@
 var express = require('express');
 
-//adding variables here for apiRoutes and htmlRoutes for routing purposes
+//adding variables here for apiRoutes and htmlRoutes for routing identifiers
 var apiRoutes = require('./app/routing/apiRoutes')
 var htmlRoutes = require('./app/routing/htmlRoutes')
 
