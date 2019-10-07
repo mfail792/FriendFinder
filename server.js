@@ -1,5 +1,6 @@
 var express = require('express');
 
+//adding variables here for apiRoutes and htmlRoutes for routing purposes
 var apiRoutes = require('./app/routing/apiRoutes')
 var htmlRoutes = require('./app/routing/htmlRoutes')
 
@@ -10,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-//adding two functions here to call api and html routing 
+//adding two functions here to CALL the api and html routes
 apiRoutes(app);
 htmlRoutes(app);
 
