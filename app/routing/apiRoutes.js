@@ -1,11 +1,11 @@
-//a POST routes /api/friends - this handles incoming survey results. will also used to handle the compatibility logic
+//a POST routes /api/friends - this handles incoming survey results and compatability logic
 //Load Data
-var friendCache = require('..data/friends.js');
+var friendList = require('../data/friends.js');
 
 module.exports = function (app) {
     //a GET route that displays JSON of all possible friends
     app.get('/api/friends', function (req, res) {
-        res.json(friendCache);
+        return res.json(friendList.friends);
     });
 
     app.post('/api/friends', function (req, res) {
