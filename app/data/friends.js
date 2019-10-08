@@ -83,11 +83,11 @@ var friendCache = [
   }
 ]
 
+//*can add more 'friends' here to increase survey results*
 
 module.exports = friendCache;
 
 
-//test
 
 
 
