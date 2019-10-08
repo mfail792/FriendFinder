@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <title>FriendFinder</title>
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- Font Awesome Glyphicons -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- Chosen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+
+
+
+
 
 </head>
 
@@ -95,7 +96,7 @@
 
 
         <h3><strong>Question 6</strong></h3>
-        <h4>Sometimes you find yourself questioning the possibility that Chuck Norris sneezed, resulting in the creation of the universe.</h4>
+        <h4>You enjoy the smell of rain.</h4>
         <select class="chosen-select" id="q6">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -107,7 +108,7 @@
 
 
         <h3><strong>Question 7</strong></h3>
-        <h4>There are times when you have woken up during the middle of the night in a feverish sweat, recounting lines from Chuck Norris movies.</h4>
+        <h4>Sometimes you make running motions while in a vehicle, to pretend as if you are sprinting very fast.</h4>
         <select class="chosen-select" id="q7">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -118,7 +119,7 @@
         </select>
 
         <h3><strong>Question 8</strong></h3>
-        <h4>On any given day, you find yourself questioning whether or not the activities you are involved with would be better spent watching Chuck Norris movies.</h4>
+        <h4>You find solace in gazing at the stars.</h4>
         <select class="chosen-select" id="q8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -160,12 +161,12 @@
                 <!--MODAL CONTENT-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title"><strong>Behold! Your Best Match..</strong></h2>
+                        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                        <h2 class="modal-title"><strong>Your Match!</strong></h2>
                     </div>
                     <div class="modal-body">
                         <h2 id="match-name"></h2>
-                        <img id="match-img" src="" alt="No Image">
+                        <img id="match-img" src="" alt="No Image" style="max-width: 350px;" class="center">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -175,21 +176,30 @@
             </div>
         </div>
 
+        <style>
+            .modal-body {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-
+            .modal-title {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn"><i class="fa fa-check-circle"
                 aria-hidden="true"></i>
             Submit</button>
 
 
         <script type="text/javascript">
-
             // Capture the form inputs
-            $("#submit").on("click", function (event) {
+            $("#submitBtn").on("click", function (event) {
                 event.preventDefault();
-
                 // Form validation
                 function validateForm() {
                     var isValid = true;
@@ -198,19 +208,16 @@
                             isValid = false;
                         }
                     });
-
                     $(".chosen-select").each(function () {
-
                         if ($(this).val() === "") {
                             isValid = false;
                         }
                     });
                     return isValid;
                 }
-
-                // If all required fields are filled
+                // If all the fields are completed...
                 if (validateForm()) {
-                    // Create an object for the user"s data
+                    // Creating an object here for user's input
                     var userData = {
                         name: $("#name").val(),
                         photo: $("#photo").val(),
@@ -227,29 +234,22 @@
                             $("#q10").val()
                         ]
                     };
-
                     //grabs current URL of site
                     var currentURL = window.location.origin;
-
-
                     // AJAX post the data to the friends API in friends.js
                     $.post(currentURL + "/api/friends", userData, function (data) {
-
                         // Grab the result from the AJAX post so that the best match's name and pic are displayed
                         $("#match-name").text(data.name);
                         $("#match-img").attr("src", data.photo);
-
                         // Shows modal with the best match
                         $("#results-modal").modal("toggle");
-
                     });
                 } else {
                     alert("Please fill out all fields before submitting!");
                 }
             });
 
-
-            //*still need to add code to clear input fields after user submission*
+            //*can add a function to clear input fields after user submission*
 
         </script>
 

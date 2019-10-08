@@ -84,13 +84,10 @@ var friendCache = [
 ]
 
 
-module.exports = {friends: friendCache};
+module.exports = friendCache;
 
 
 //test
-
-
-
 
 
 
